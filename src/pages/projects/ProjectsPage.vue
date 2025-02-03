@@ -106,7 +106,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
             border-color="background-element"
             :options="[
               { label: 'Cards', value: true },
-              { label: 'Table', value: false },
+              { label: 'List', value: false },
             ]"
           />
         </div>
