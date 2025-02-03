@@ -8,6 +8,7 @@ import { Pagination, Sorting } from '../../../data/pages/projects'
 import { useVModel } from '@vueuse/core'
 
 const columns = defineVaDataTableColumns([
+  { label: 'New Column', key: 'new_column', sortable: true },
   { label: 'Project name', key: 'project_name', sortable: true },
   { label: 'Project owner', key: 'project_owner', sortable: true },
   { label: 'Team', key: 'team', sortable: true },
@@ -60,6 +61,9 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       :columns="columns"
       :loading="loading"
     >
+      <template #cell(new_value)="{}">
+        <div class="ellipsis max-w-[230px] lg:max-w-[450px]">New value!!</div>
+      </template>
       <template #cell(project_name)="{ rowData }">
         <div class="ellipsis max-w-[230px] lg:max-w-[450px]">
           {{ rowData.project_name }}
