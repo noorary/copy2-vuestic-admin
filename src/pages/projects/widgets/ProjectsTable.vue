@@ -8,8 +8,8 @@ import { Pagination, Sorting } from '../../../data/pages/projects'
 import { useVModel } from '@vueuse/core'
 
 const columns = defineVaDataTableColumns([
-  { label: 'Project name', key: 'project_name', sortable: true },
   { label: 'Project owner', key: 'project_owner', sortable: true },
+  { label: 'Project name', key: 'project_name', sortable: true },
   { label: 'Team', key: 'team', sortable: true },
   { label: 'Status', key: 'status', sortable: true },
   { label: 'Creation Date', key: 'created_at', sortable: true },
