@@ -66,6 +66,7 @@ const teamFiltersSearch = ref('')
 
 <template>
   <VaForm v-slot="{ validate }" class="flex flex-col gap-2">
+    <VaInput label="New input field" />
     <VaInput
       v-model="newProject.project_name"
       label="Project name"
