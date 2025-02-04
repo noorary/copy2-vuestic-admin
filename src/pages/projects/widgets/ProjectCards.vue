@@ -37,7 +37,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       <VaCardContent class="flex flex-col h-full">
         <div class="text-[var(--va-secondary)]">{{ new Date(project.created_at).toLocaleDateString() }}</div>
         <div class="flex flex-col items-center gap-4 grow">
-          <h4>
+          <h4 data-cy="card-project-name">
             {{ project.project_name }}
           </h4>
           <p>
