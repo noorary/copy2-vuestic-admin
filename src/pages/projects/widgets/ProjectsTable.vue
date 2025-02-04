@@ -58,9 +58,10 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       :items="projects"
       :columns="columns"
       :loading="loading"
+      :row-bind="(rowData, rowIndex) => ({ 'data-cy': `project-row-${rowIndex}` })"
     >
       <template #cell(project_name)="{ rowData }">
-        <div class="ellipsis max-w-[230px] lg:max-w-[450px]">
+        <div class="ellipsis max-w-[230px] lg:max-w-[450px]" data-cy="project-name">
           {{ rowData.project_name }}
         </div>
       </template>
@@ -78,7 +79,9 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       </template>
 
       <template #cell(created_at)="{ rowData: project }">
-        {{ new Date(project.created_at).toLocaleDateString() }}
+        <div data-cy="project-creation-date">
+          {{ new Date(project.created_at).toLocaleDateString() }}
+        </div>
       </template>
 
       <template #cell(actions)="{ rowData: project }">
@@ -89,6 +92,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
             color="primary"
             icon="mso-edit"
             aria-label="Edit project"
+            data-cy="edit-project-button"
             @click="$emit('edit', project as Project)"
           />
           <VaButton
