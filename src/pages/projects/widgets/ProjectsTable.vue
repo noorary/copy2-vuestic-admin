@@ -89,6 +89,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
             size="small"
             color="primary"
             icon="mso-edit"
+            type="submit"
             aria-label="Edit project"
             @click="$emit('edit', project as Project)"
           />
