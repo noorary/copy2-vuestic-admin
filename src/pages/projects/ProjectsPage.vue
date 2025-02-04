@@ -108,12 +108,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
           >
             Cards
           </VaButton>
-          <VaButton
-            :color="!doShowAsCards ? 'primary' : 'secondary'"
-            data-cy="table-option"
-            small
-            @click="doShowAsCards = false"
-          >
+          <VaButton :color="!doShowAsCards ? 'primary' : 'secondary'" small @click="doShowAsCards = false">
             Table
           </VaButton>
         </div>
