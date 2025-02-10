@@ -2,6 +2,7 @@
 import { type PropType, inject } from 'vue'
 import { type Project } from '../types'
 import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
+import { testIdValues } from '../../../../cypress/support/testIds'
 
 defineProps({
   projects: {
@@ -38,7 +39,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
         <div class="text-[var(--va-secondary)]">{{ new Date(project.created_at).toLocaleDateString() }}</div>
         <div class="flex flex-col items-center gap-4 grow">
           <h4
-            data-cy="card-project-name"
+            :data-cy="testIdValues.cardProjectName"
             class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis"
           >
             {{ project.project_name }}

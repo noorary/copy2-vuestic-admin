@@ -6,6 +6,7 @@ import UserAvatar from '../../users/widgets/UserAvatar.vue'
 import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 import { Pagination, Sorting } from '../../../data/pages/projects'
 import { useVModel } from '@vueuse/core'
+import { testIdValues } from '../../../../cypress/support/testIds'
 
 const columns = defineVaDataTableColumns([
   { label: 'Project name', key: 'project_name', sortable: true },
@@ -59,10 +60,10 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       :items="projects"
       :columns="columns"
       :loading="loading"
-      :row-bind="(rowData, rowIndex) => ({ 'data-cy': `project-row-${rowIndex}` })"
+      :row-bind="(rowData, rowIndex) => ({ 'data-cy': `${testIdValues.projectRow}-${rowIndex}` })"
     >
       <template #cell(project_name)="{ rowData }">
-        <div class="ellipsis max-w-[230px] lg:max-w-[450px]" data-cy="project-name">
+        <div class="ellipsis max-w-[230px] lg:max-w-[450px]" :data-cy="testIdValues.projectName">
           {{ rowData.project_name }}
         </div>
       </template>
@@ -80,7 +81,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       </template>
 
       <template #cell(created_at)="{ rowData: project }">
-        <div data-cy="project-creation-date">
+        <div :data-cy="testIdValues.projectCreationDate">
           {{ new Date(project.created_at).toLocaleDateString() }}
         </div>
       </template>
@@ -93,7 +94,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
             color="primary"
             icon="mso-edit"
             aria-label="Edit project"
-            data-cy="edit-project-button"
+            :data-cy="testIdValues.editProjectButton"
             @click="$emit('edit', project as Project)"
           />
           <VaButton

@@ -8,6 +8,7 @@ import EditProjectForm from './widgets/EditProjectForm.vue'
 import { Project } from './types'
 import { useModal, useToast } from 'vuestic-ui'
 import { useProjectUsers } from './composables/useProjectUsers'
+import { testIdValues } from '../../../cypress/support/testIds'
 
 const doShowAsCards = useLocalStorage('projects-view', true)
 
@@ -102,7 +103,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
         <div class="flex flex-row gap-2 justify-start items-center">
           <VaButton
             :color="doShowAsCards ? 'primary' : 'secondary'"
-            data-cy="cards-option"
+            :data-cy="testIdValues.cardsOption"
             small
             @click="doShowAsCards = true"
           >
@@ -110,7 +111,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
           </VaButton>
           <VaButton
             :color="!doShowAsCards ? 'primary' : 'secondary'"
-            data-cy="table-option"
+            :data-cy="testIdValues.tableOption"
             small
             @click="doShowAsCards = false"
           >

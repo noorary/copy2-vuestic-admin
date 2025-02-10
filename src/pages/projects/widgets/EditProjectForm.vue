@@ -5,6 +5,7 @@ import { SelectOption } from 'vuestic-ui'
 import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 import UserAvatar from '../../users/widgets/UserAvatar.vue'
 import { useUsersStore } from '../../../stores/users'
+import { testIdValues } from '../../../../cypress/support/testIds'
 
 const props = defineProps<{
   project: Project | null
@@ -70,7 +71,7 @@ const teamFiltersSearch = ref('')
       v-model="newProject.project_name"
       label="Project name"
       :rules="[required]"
-      :input-attr="{ 'data-cy': 'project-name-input' }"
+      :input-attr="{ 'data-cy': testIdValues.projectNameInput }"
     />
     <VaSelect
       v-model="newProject.project_owner"
@@ -129,10 +130,10 @@ const teamFiltersSearch = ref('')
       </template>
     </VaSelect>
     <div class="flex justify-end flex-col-reverse sm:flex-row mt-4 gap-2">
-      <VaButton preset="secondary" color="secondary" data-cy="close-editing-button" @click="$emit('close')"
+      <VaButton preset="secondary" color="secondary" :data-cy="testIdValues.closeEditingButton" @click="$emit('close')"
         >Cancel</VaButton
       >
-      <VaButton data-cy="save-project-button" @click="validate() && $emit('save', newProject as Project)">{{
+      <VaButton :data-cy="testIdValues.saveProjectButton" @click="validate() && $emit('save', newProject as Project)">{{
         saveButtonLabel
       }}</VaButton>
     </div>
