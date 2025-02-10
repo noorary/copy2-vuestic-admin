@@ -18,28 +18,33 @@ describe('Projects page', () => {
     cy.visit('/projects')
   })
   it('2.1. successfully opens projects as cards', () => {
-    cy.getByLocator('cards-option').click()
-    cy.getByLocator('card-project-name').should('contain', 'Vuestic')
+    cy.getByLocator('ProjectsPage-cards-option').click()
+    cy.getByLocator('ProjectsPage-card-project-name').should('contain', 'Vuestic')
   })
   it('2.2. successfully opens a table of projects', () => {
-    cy.getByLocator('table-option').click()
+    cy.getByLocator('ProjectsPage-table-option').click()
     cy.contains('8 results')
   })
   it('2.3. contains a project in the table', () => {
-    cy.getByLocator('table-option').click()
-    cy.getByLocator('project-name').first().should('contain', 'Vuestic')
-    cy.getByLocator('project-creation-date').first().should('contain', '20/11/2023')
-    cy.getByLocator('edit-project-button').first().click()
+    cy.getByLocator('ProjectsPage-table-option').click()
+    cy.getByLocator('ProjectsPage-project-name').first().should('contain', 'Vuestic')
+    cy.getByLocator('ProjectsPage-project-creation-date').first().should('contain', '20/11/2023')
+    cy.getByLocator('ProjectsPage-edit-project-button').first().click()
   })
   it('2.4. allows a project to be edited', () => {
-    cy.getByLocator('table-option').click()
-    cy.getByLocator('project-name').first().parents('tr').getByLocator('edit-project-button').first().click()
+    cy.getByLocator('ProjectsPage-table-option').click()
+    cy.getByLocator('ProjectsPage-project-name')
+      .first()
+      .parents('tr')
+      .getByLocator('ProjectsPage-edit-project-button')
+      .first()
+      .click()
     // UI library Vuestic does not allow to add data-cy to input component
     // so aria lable is used here
     cy.getByAriaLabel('$t:inputField').clear().type('Vuestic!!!', { force: true })
-    cy.getByLocator('save-project-button').click()
-    cy.getByLocator('project-row-0').within(() => {
-      cy.getByLocator('project-name').should('contain', 'Vuestic!!!')
+    cy.getByLocator('ProjectsPage-save-project-button').click()
+    cy.getByLocator('ProjectsPage-project-row-0').within(() => {
+      cy.getByLocator('ProjectsPage-project-name').should('contain', 'Vuestic!!!')
     })
   })
 })

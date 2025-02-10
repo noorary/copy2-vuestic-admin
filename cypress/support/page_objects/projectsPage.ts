@@ -20,27 +20,27 @@ export class ProjectsPage {
   }
 
   clickCardsButton() {
-    return cy.getByLocator('cards-option').click()
+    return cy.getByLocator('ProjectsPage-cards-option').click()
   }
 
   getCardProjectName() {
-    return cy.getByLocator('card-project-name')
+    return cy.getByLocator('ProjectsPage-card-project-name')
   }
 
   clickTableButton() {
-    return cy.getByLocator('table-option').click()
+    return cy.getByLocator('ProjectsPage-table-option').click()
   }
 
   getTableProjectName() {
-    return cy.getByLocator('project-name')
+    return cy.getByLocator('ProjectsPage-project-name')
   }
 
   getTableProjectCreationDate() {
-    return cy.getByLocator('project-creation-date')
+    return cy.getByLocator('ProjectsPage-project-creation-date')
   }
 
   clickFirstEditProjectButton() {
-    return cy.getByLocator('edit-project-button').first().click()
+    return cy.getByLocator('ProjectsPage-edit-project-button').first().click()
   }
 
   getProjectNameInput() {
@@ -48,11 +48,11 @@ export class ProjectsPage {
   }
 
   clickSaveProjectButton() {
-    return cy.getByLocator('save-project-button').click()
+    return cy.getByLocator('ProjectsPage-save-project-button').click()
   }
 
   getProjectRow() {
-    return cy.getByLocator('project-row-0')
+    return cy.getByLocator('ProjectsPage-project-row-0')
   }
 }
 
