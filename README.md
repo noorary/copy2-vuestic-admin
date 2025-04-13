@@ -1,3 +1,7 @@
+Note! This repository contains Cypress E2E tests and changes made to the Vuestic Admin application as a part of my thesis research. The original Vuestic Admin repository can be found [here](https://github.com/epicmaxco/vuestic-admin)
+
+---------------------------------------
+
 <p align="center">
   <a href="https://vuestic.dev" target="_blank">
     <img alt="Vuestic UI Logo" width="220" src="./.github/assets/vuestic-admin-logo.png">
