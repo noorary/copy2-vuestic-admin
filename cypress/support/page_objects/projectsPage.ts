@@ -1,3 +1,5 @@
+import { testIdValues } from '../../support/testIds'
+
 export class ProjectsPage {
   visit() {
     cy.visit('/projects')
@@ -20,39 +22,39 @@ export class ProjectsPage {
   }
 
   clickCardsButton() {
-    return cy.getByLocator('cards-option').click()
+    return cy.getByLocator(testIdValues.cardsOption).click()
   }
 
   getCardProjectName() {
-    return cy.getByLocator('card-project-name')
+    return cy.getByLocator(testIdValues.cardProjectName)
   }
 
   clickTableButton() {
-    return cy.getByLocator('table-option').click()
+    return cy.getByLocator(testIdValues.tableOption).click()
   }
 
   getTableProjectName() {
-    return cy.getByLocator('project-name')
+    return cy.getByLocator(testIdValues.projectName)
   }
 
   getTableProjectCreationDate() {
-    return cy.getByLocator('project-creation-date')
+    return cy.getByLocator(testIdValues.projectCreationDate)
   }
 
   clickFirstEditProjectButton() {
-    return cy.getByLocator('edit-project-button').first().click()
+    return cy.getByLocator(testIdValues.editProjectButton).first().click()
   }
 
   getProjectNameInput() {
-    return cy.getByAriaLabel('$t:inputField')
+    return cy.getByLocator(testIdValues.projectNameInput)
   }
 
   clickSaveProjectButton() {
-    return cy.getByLocator('save-project-button').click()
+    return cy.getByLocator(testIdValues.saveProjectButton).click()
   }
 
   getProjectRow() {
-    return cy.getByLocator('project-row-0')
+    return cy.getByLocator(`${testIdValues.projectRow}-0`)
   }
 }
 
